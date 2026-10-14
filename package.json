@@ -1,0 +1,17 @@
+{
+  "name": "medfinder-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Clickable HTML prototype for MedFinder — find which nearby pharmacies have the medicine you need.",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "dev": "node scripts/serve.js",
+    "test": "node scripts/smoke-test.js && node scripts/dom-test.js"
+  },
+  "devDependencies": {
+    "jsdom": "^26.0.0"
+  },
+  "keywords": ["medfinder", "prototype", "pharmacy", "nigeria"],
+  "license": "MIT"
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MedFinder — clickable prototype</title>
+<meta name="description" content="Mobile app prototype: find which nearby pharmacies have the medicine you need.">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/components.css">
+<link rel="stylesheet" href="styles/screens.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2312A150'/%3E%3Cpath d='M16 25c0-6 4.5-10.5 4.5-10.5a4.5 4.5 0 1 0-9 0S16 19 16 25Z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<div class="viewer">
+
+  <!-- ============================ sidebar ============================ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
+             stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0Z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+      </span>
+      <span>
+        <span class="brand-name">MedFinder</span>
+        <span class="brand-sub">Prototype v1</span>
+      </span>
+    </div>
+
+    <div class="role-switch" role="group" aria-label="Preview role">
+      <button data-role-switch="patient" aria-pressed="true">Patient</button>
+      <button data-role-switch="pharmacist" aria-pressed="false">Pharmacy</button>
+    </div>
+
+    <nav id="screen-nav" aria-label="Screens"></nav>
+
+    <div class="sidebar-foot">
+      <strong style="color:var(--text)">Sample data only.</strong>
+      All pharmacies, PCN numbers and prices are fictional and exist to show the flow.
+      <a href="design-system.html">Open the design system →</a>
+    </div>
+  </aside>
+
+  <!-- ============================= stage ============================= -->
+  <main class="stage">
+    <button id="mobile-nav-toggle" class="btn btn-outline btn-sm"
+            style="display:none;margin-bottom:var(--sp-3)">Screens</button>
+
+    <div class="stage-head">
+      <h1 id="stage-title">Consent &amp; privacy (NDPA)</h1>
+      <p>Click through the phone. Use the list on the left to jump between screens.</p>
+    </div>
+
+    <div class="phone">
+      <div class="phone-notch" aria-hidden="true"></div>
+      <div class="screen" id="phone-screen"></div>
+    </div>
+
+    <p class="stage-foot">
+      Rendered at 390 × 844 — the reference size for mid-range Android phones.
+      Every interaction is wired to state, so filters, stock toggles and reservations stick as you move around.
+    </p>
+  </main>
+
+</div>
+
+<script type="module" src="js/app.js"></script>
+<script>
+  // Show the screen list toggle only when the sidebar is collapsed.
+  const t = document.getElementById('mobile-nav-toggle');
+  const check = () => { t.style.display = window.innerWidth <= 900 ? 'block' : 'none'; };
+  check(); window.addEventListener('resize', check);
+</script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MedFinder — design system</title>
+<meta name="description" content="Colours, type, spacing, components and accessibility rules for MedFinder.">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/components.css">
+<link rel="stylesheet" href="styles/screens.css">
+<link rel="stylesheet" href="styles/docs.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2312A150'/%3E%3Cpath d='M16 25c0-6 4.5-10.5 4.5-10.5a4.5 4.5 0 1 0-9 0S16 19 16 25Z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<div class="docs">
+
+  <header class="docs-header">
+    <p class="eyebrow">MedFinder · v1</p>
+    <h1>Design system</h1>
+    <p>One place for every colour, type size and component rule used in the app.
+       These values live in <code>styles/tokens.css</code> and are the only place
+       they should be changed.</p>
+    <div class="meta">
+      <span class="chip chip-mint">Poppins · headings</span>
+      <span class="chip chip-mint">Inter · body</span>
+      <span class="chip chip-tint">390 × 844 reference</span>
+      <a class="chip" href="index.html">Open the prototype →</a>
+    </div>
+  </header>
+
+  <!-- =================================================== colour -->
+  <section class="docs-section">
+    <h2>Colour</h2>
+    <p class="lede">Green means “go and get it”. Purple is reserved for the two
+      actions that ask a pharmacist for something — requesting stock and holding
+      stock. Red is for failure states only, never decoration.</p>
+
+    <p class="docs-sub">Brand</p>
+    <div class="swatch-grid" id="swatch-brand"></div>
+
+    <p class="docs-sub">Neutrals</p>
+    <div class="swatch-grid" id="swatch-neutral"></div>
+
+    <p class="docs-sub">Semantic</p>
+    <div class="swatch-grid" id="swatch-semantic"></div>
+
+    <p class="docs-sub">Stock states</p>
+    <div class="swatch-grid" id="swatch-stock"></div>
+  </section>
+
+  <!-- =================================================== type -->
+  <section class="docs-section">
+    <h2>Typography</h2>
+    <p class="lede">Body copy never drops below 13 px — most users are on small,
+      low-brightness phones, often outdoors. Headings are Poppins; everything
+      else is Inter.</p>
+
+    <div id="type-scale"></div>
+
+    <p class="docs-sub">Weights in use</p>
+    <table class="spec-table">
+      <thead><tr><th>Style</th><th>Family</th><th>Weight</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td>Display</td><td>Poppins</td><td>700</td><td>Screen titles, countdown numbers</td></tr>
+        <tr><td>Title</td><td>Poppins</td><td>600</td><td>Card and section headings</td></tr>
+        <tr><td>Body medium</td><td>Inter</td><td>500</td><td>Labels, inputs</td></tr>
+        <tr><td>Body</td><td>Inter</td><td>400</td><td>Paragraphs, descriptions</td></tr>
+        <tr><td>Caption</td><td>Inter</td><td>400 / 600</td><td>Freshness, meta, badges</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =================================================== shape -->
+  <section class="docs-section">
+    <h2>Shape, spacing and elevation</h2>
+    <p class="lede">Everything is a multiple of 4, skirting 8. Shadows are
+      deliberately faint — heavy shadows read as desktop UI and cost frames on
+      low-end Android.</p>
+
+    <div class="stage-grid">
+      <div class="spec-panel">
+        <h3>Radius</h3>
+        <table class="spec-table">
+          <tbody>
+            <tr><td>Buttons &amp; inputs</td><td><code>12px</code></td><td><span style="display:inline-block;width:44px;height:28px;background:var(--mint);border-radius:12px"></span></td></tr>
+            <tr><td>Cards</td><td><code>16px</code></td><td><span style="display:inline-block;width:44px;height:28px;background:var(--mint);border-radius:16px"></span></td></tr>
+            <tr><td>Chips &amp; bottom nav</td><td><code>999px</code></td><td><span style="display:inline-block;width:44px;height:28px;background:var(--mint);border-radius:999px"></span></td></tr>
+            <tr><td>Small inline bits</td><td><code>8px</code></td><td><span style="display:inline-block;width:44px;height:28px;background:var(--mint);border-radius:8px"></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="spec-panel">
+        <h3>Spacing</h3>
+        <table class="spec-table">
+          <tbody>
+            <tr><td>4 · 8 · 12</td><td><code>--sp-1/2/3</code></td><td>tight gaps, icon padding</td></tr>
+            <tr><td>16</td><td><code>--sp-4</code></td><td>card padding</td></tr>
+            <tr><td>20</td><td><code>--sp-5</code></td><td>screen gutters</td></tr>
+            <tr><td>24 · 32</td><td><code>--sp-6/8</code></td><td>section spacing</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="spec-panel">
+        <h3>Elevation</h3>
+        <div class="row-wrap" style="margin-top:var(--sp-3)">
+          <span style="display:grid;place-items:center;width:76px;height:56px;background:var(--surface);border-radius:var(--r-input);box-shadow:var(--sh-1);font-size:10px">sh-1</span>
+          <span style="display:grid;place-items:center;width:76px;height:56px;background:var(--surface);border-radius:var(--r-input);box-shadow:var(--sh-2);font-size:10px">sh-2</span>
+          <span style="display:grid;place-items:center;width:76px;height:56px;background:var(--surface);border-radius:var(--r-input);box-shadow:var(--sh-3);font-size:10px">sh-3</span>
+          <span style="display:grid;place-items:center;width:76px;height:56px;background:var(--surface);border-radius:var(--r-input);box-shadow:var(--sh-float);font-size:10px">float</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================== buttons -->
+  <section class="docs-section">
+    <h2>Buttons</h2>
+    <p class="lede">Primary buttons are 48 px tall and full width. Purple is only
+      for “Request stock” and “Reserve” — the two moments the patient asks the
+      pharmacy for something.</p>
+
+    <div class="stage-grid">
+      <div class="spec-panel">
+        <h3>Variants</h3>
+        <div class="stack-2" style="margin-top:var(--sp-3)">
+          <button class="btn btn-primary btn-block">Find a pharmacy</button>
+          <button class="btn btn-purple btn-block">Request stock</button>
+          <button class="btn btn-secondary btn-block">Update my stock</button>
+          <button class="btn btn-outline btn-block">Search again</button>
+          <button class="btn btn-ghost btn-block">Cancel</button>
+          <button class="btn btn-danger btn-block">Release reservation</button>
+        </div>
+      </div>
+
+      <div class="spec-panel">
+        <h3>States and sizes</h3>
+        <div class="stack-2" style="margin-top:var(--sp-3)">
+          <button class="btn btn-primary btn-block" disabled>Find a pharmacy</button>
+          <button class="btn btn-primary btn-block btn-sm">Small · 40 px</button>
+          <button class="btn btn-primary btn-block btn-lg">Large · 52 px</button>
+        </div>
+        <p class="notes" style="margin-top:var(--sp-4)">
+          Disabled uses <code>#D0D5DD</code> with <code>#98A2B3</code> text —
+          never a faded brand colour, which still looks tappable.
+        </p>
+      </div>
+
+      <div class="spec-panel">
+        <h3>Icon buttons</h3>
+        <div class="row-wrap" style="margin-top:var(--sp-3)">
+          <button class="icon-btn" aria-label="Example">↑</button>
+          <button class="icon-btn plain" aria-label="Example">↑</button>
+          <span style="background:var(--green-deep);padding:10px;border-radius:12px;display:inline-flex">
+            <button class="icon-btn on-green" aria-label="Example">↑</button>
+          </span>
+        </div>
+        <p class="notes" style="margin-top:var(--sp-4)">
+          40 px square is the minimum reliable touch target on the budget
+          Android devices in the pilot.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================== chips -->
+  <section class="docs-section">
+    <h2>Chips, badges and freshness</h2>
+    <p class="lede">Every stock chip carries an icon <em>and</em> a word, so the
+      state survives colour blindness, greyscale screens and bright sunlight.</p>
+
+    <div class="stage-grid">
+      <div class="spec-panel">
+        <h3>Stock chips</h3>
+        <div class="row-wrap" style="margin-top:var(--sp-3)" id="docs-stock-chips"></div>
+        <div class="row-wrap" style="margin-top:var(--sp-3)" id="docs-stock-chips-lg"></div>
+        <p class="notes" style="margin-top:var(--sp-4)">
+          Low stock text uses <code>#A66A05</code> rather than
+          <code>#F5A524</code> — the raw amber fails contrast on the pale tint.
+        </p>
+      </div>
+
+      <div class="spec-panel">
+        <h3>Filter chips</h3>
+        <div class="row-wrap" style="margin-top:var(--sp-3)">
+          <span class="chip active">Open now</span>
+          <span class="chip active">Nearest</span>
+          <span class="chip">In stock</span>
+          <span class="chip">Map</span>
+        </div>
+        <p class="notes" style="margin-top:var(--sp-4)">
+          Active: green fill, white text. Inactive: white with grey text and a
+          hairline border.
+        </p>
+        <div class="row-wrap" style="margin-top:var(--sp-4)">
+          <span class="chip chip-mint">Verified</span>
+          <span class="chip chip-tint">Prescription only</span>
+        </div>
+      </div>
+
+      <div class="spec-panel">
+        <h3>Badges</h3>
+        <div class="row-wrap" style="margin-top:var(--sp-3)" id="docs-badges"></div>
+        <p class="docs-sub" style="margin-top:var(--sp-5)">Freshness scale</p>
+        <div class="stack-2" id="docs-freshness"></div>
+        <p class="notes" style="margin-top:var(--sp-4)">
+          Under 6 hours, grey. 6 hours to 3 days, amber. Beyond 3 days, red and
+          the listing drops down the ranking.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================== components -->
+  <section class="docs-section">
+    <h2>Components</h2>
+    <p class="lede">Rendered live from the same modules the prototype uses, so
+      this page can never drift from the app.</p>
+
+    <div class="stage-grid">
+      <div>
+        <p class="docs-sub">Pharmacy card</p>
+        <div class="preview preview-narrow" id="docs-pharmacy-card"></div>
+        <p class="notes" style="margin-top:var(--sp-3)">
+          Name, distance, open/closed tag, PCN badge, stock chip and a freshness
+          label — the six facts a patient needs before they decide.
+        </p>
+      </div>
+
+      <div>
+        <p class="docs-sub">Reservation banner</p>
+        <div class="preview preview-narrow" id="docs-reservation"></div>
+        <p class="notes" style="margin-top:var(--sp-3)">
+          Purple card with a live countdown. Both actions sit on the card so the
+          patient never has to scroll to act.
+        </p>
+      </div>
+    </div>
+
+    <div class="stage-grid" style="margin-top:var(--sp-6)">
+      <div>
+        <p class="docs-sub">Bottom nav</p>
+        <div class="preview preview-narrow" id="docs-bottom-nav"></div>
+        <p class="notes" style="margin-top:var(--sp-3)">
+          Floating white pill. The active icon sits in a green rounded square;
+          inactive icons stay outline-only.
+        </p>
+      </div>
+
+      <div>
+        <p class="docs-sub">Search bar and inputs</p>
+        <div class="preview">
+          <div class="searchbar" style="margin-bottom:var(--sp-3)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.3-4.3"/></svg>
+            <input placeholder="Search medicine" aria-label="Search medicine">
+          </div>
+          <input class="input" placeholder="0803 123 4567" aria-label="Phone">
+          <div style="height:var(--sp-3)"></div>
+          <input class="input is-invalid" value="0803" aria-label="Invalid example">
+          <p class="field-error" style="margin-top:var(--sp-2)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+            Enter a valid Nigerian phone number
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-grid" style="margin-top:var(--sp-6)">
+      <div>
+        <p class="docs-sub">Banners</p>
+        <div class="preview stack-2">
+          <div class="banner banner-mint"><span class="banner-icon">✓</span><div><div class="banner-title">Mint · information</div><div class="banner-body">Used for reassurance and tips.</div></div></div>
+          <div class="banner banner-purple"><span class="banner-icon">◆</span><div><div class="banner-title">Purple · action needed</div><div class="banner-body">Requests and reservations.</div></div></div>
+          <div class="banner banner-amber"><span class="banner-icon">!</span><div><div class="banner-title">Amber · attention</div><div class="banner-body">Stale listings, prescriptions to bring.</div></div></div>
+          <div class="banner banner-red"><span class="banner-icon">!</span><div><div class="banner-title">Red · problem</div><div class="banner-body">Errors and failed uploads only.</div></div></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="docs-sub">Prescription notice</p>
+        <div class="preview" id="docs-rx"></div>
+        <p class="notes" style="margin-top:var(--sp-3)">
+          Required on every listing, per the PRD. It also keeps MedFinder
+          clearly outside prescribing and payment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================== icons -->
+  <section class="docs-section">
+    <h2>Icons</h2>
+    <p class="lede">Rounded outline icons on a 24 px grid, stroke 2, drawn at
+      20–24 px. Filled only when active. No doctor photography anywhere —
+      illustrations use pharmacy objects (pills, mortar, map pins) in mint or
+      purple tints.</p>
+    <div class="icon-grid" id="docs-icons"></div>
+  </section>
+
+  <!-- =================================================== a11y -->
+  <section class="docs-section">
+    <h2>Accessibility</h2>
+    <p class="lede">The rules that shaped the palette and type scale, and the
+      constraints that still need checking against a real device.</p>
+    <div class="a11y-grid" id="docs-a11y"></div>
+  </section>
+
+  <footer class="docs-footer">
+    <span>MedFinder prototype · sample data only</span>
+    <a href="index.html">Open the clickable prototype →</a>
+  </footer>
+
+</div>
+
+<script type="module" src="js/docs.js"></script>
+</body>
+</html>
